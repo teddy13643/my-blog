@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>TeddyInCode</title>
+  
+  
+  <link href="https://teddy13643.github.io/my-blog/atom.xml" rel="self"/>
+  
+  <link href="https://teddy13643.github.io/my-blog/"/>
+  <updated>2024-11-30T09:06:58.490Z</updated>
+  <id>https://teddy13643.github.io/my-blog/</id>
+  
+  <author>
+    <name>Teddy Luo</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>FP</title>
+    <link href="https://teddy13643.github.io/my-blog/2024/11/29/FP/"/>
+    <id>https://teddy13643.github.io/my-blog/2024/11/29/FP/</id>
+    <published>2024-11-29T14:35:52.000Z</published>
+    <updated>2024-11-30T09:06:58.490Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://teddy13643.github.io/my-blog/2024/11/29/hello-world/"/>
+    <id>https://teddy13643.github.io/my-blog/2024/11/29/hello-world/</id>
+    <published>2024-11-29T14:34:42.408Z</published>
+    <updated>2024-11-29T14:34:42.408Z</updated>
+    
+    
+      
+      
+    <summary type="html"></summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
