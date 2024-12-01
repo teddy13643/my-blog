@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-    <url>
-        <loc>https://teddy13643.github.io/my-blog/</loc>
-        <changefreq>daily</changefreq>
-        <priority>1</priority>
-    </url>
-
 
     <url>
-        <loc>https://teddy13643.github.io/my-blog/2024/11/29/FP/</loc>
+        <loc>https://teddy13643.github.io/my-blog/tags/%E6%8A%80%E8%A1%93/</loc>
         <lastmod>2024-12-01T05:02:44.880Z</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
+        <priority>0.2</priority>
+    </url>
 
+    <url>
+        <loc>https://teddy13643.github.io/my-blog/tags/Hexo/</loc>
+        <lastmod>2024-12-01T05:02:44.880Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
     </url>
 
 </urlset>
