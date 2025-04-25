@@ -10,7 +10,7 @@
     
     
     <url>
-        <loc>https://teddy13643.github.io/my-blog/categories/</loc>
+        <loc>https://teddy13643.github.io/my-blog/tags/</loc>
         <lastmod>2024-12-03T12:03:32.177Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -19,7 +19,7 @@
     
     
     <url>
-        <loc>https://teddy13643.github.io/my-blog/tags/</loc>
+        <loc>https://teddy13643.github.io/my-blog/categories/</loc>
         <lastmod>2024-12-03T12:03:32.177Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
