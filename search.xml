@@ -1,6 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>hello-airflow</title>
+    <url>/my-blog/2025/04/26/hello-airflow/</url>
+    <content><![CDATA[<h2 id="Airflow-vs-Laravel-排程"><a href="#Airflow-vs-Laravel-排程" class="headerlink" title="Airflow vs Laravel 排程"></a>Airflow vs Laravel 排程</h2><p>最近查了一些資料，發現資料工程上常使用 Airflow 來管理排程。之前使用 Laravel 開發時，Laravel 也有 Scheduler 可以管理排程，因此我好奇 Airflow 到底厲害在哪裡。</p>
+<p>經過研究後，我整理出以下兩點結論@@：</p>
+<ol>
+<li><p><strong>流程相依性</strong></p>
+<ul>
+<li><p>Airflow 的排程具有相依性，因為他本身就內建有流程相依的語法</p>
+</li>
+<li><p>Laravel 的排程則比較獨立，若要實現相依性需要額外撰寫大量程式碼，且會增加彼此間的耦合度，進而提高測試與維護難度。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>排程管理與維護</strong></p>
+<ul>
+<li><p>當排程數量眾多時，Laravel 由於缺乏階層與流程結構，除非所有排程都是由同一人開發，否則接手者需要透過觸發週期或時間點推敲整體資料流程與業務流程。</p>
+</li>
+<li><p>而且還會需要依賴外部文件來對照理解，增加維護的複雜度。</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>感覺起來airflow很厲害哈哈，因為之前在公司畫流程圖時候，也覺得滿好玩的，那既然Airflow主打一個流程很強的優點，所以我想說來架看看好了＠＠</p>
+<h2 id="本地啟動指令"><a href="#本地啟動指令" class="headerlink" title="本地啟動指令"></a>本地啟動指令</h2><p>使用 Docker Compose 最快，指令＋說明如下：</p>
+<ul>
+<li><p><code>curl -LfO &#39;https://airflow.apache.org/docs/apache-airflow/2.8.1/docker-compose.yaml&#39;</code><br>下載官方範例的 <code>docker-compose.yaml</code> 檔案。</p>
+</li>
+<li><p><code>docker-compose up airflow-init</code><br>初始化資料庫及相關設定。</p>
+</li>
+<li><p><code>docker-compose up</code><br>啟動整個 Airflow 系統，包括 Web UI、Scheduler 等服務。</p>
+</li>
+</ul>
+<p>啟動完成後，打開瀏覽器並訪問 <a href="http://localhost:8080/">http://localhost:8080</a> 即可看到 Airflow 的介面，功能豐富且專業。</p>
+<p>預設帳號密碼皆為 <code>airflow</code>。</p>
+<h2 id="DAG-實作範例"><a href="#DAG-實作範例" class="headerlink" title="DAG 實作範例"></a>DAG 實作範例</h2><p>接著準備一個簡單的 Python 檔案（Airflow 專有名詞稱為 DAG），命名為 <code>hello_airflow.py</code>，並放置在 <code>dags</code> 資料夾中：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> airflow <span class="keyword">import</span> DAG</span><br><span class="line"><span class="keyword">from</span> airflow.operators.python <span class="keyword">import</span> PythonOperator</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">say_hello</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Hello, Airflow!&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> DAG(</span><br><span class="line">    dag_id=<span class="string">&quot;hello_airflow&quot;</span>,</span><br><span class="line">    start_date=datetime(<span class="number">2025</span>, <span class="number">4</span>, <span class="number">25</span>),</span><br><span class="line">    schedule_interval=<span class="literal">None</span>,  <span class="comment"># 手動觸發</span></span><br><span class="line">    catchup=<span class="literal">False</span>,</span><br><span class="line">) <span class="keyword">as</span> dag:</span><br><span class="line">    hello_task = PythonOperator(</span><br><span class="line">        task_id=<span class="string">&quot;say_hello_task&quot;</span>,</span><br><span class="line">        python_callable=say_hello,</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
+
+<p>這個 DAG 非常簡單，執行時會在 log 中印出一行 “Hello, Airflow!”。</p>
+<h2 id="介面操作步驟"><a href="#介面操作步驟" class="headerlink" title="介面操作步驟"></a>介面操作步驟</h2><p>打開 Airflow Web UI（預設為 8080 端口）後，可以依照以下步驟操作：</p>
+<ul>
+<li><p><strong>查看 DAG 清單</strong><br>頁面會顯示多個範例 DAG，我計畫之後修改 <code>docker-compose.yaml</code> 設定，移除這些範例，因為現今 AI 工具相當方便，直接查詢即可，不太需要大量範例。</p>
+</li>
+<li><p><strong>觸發 DAG</strong><br>找到 <code>hello_airflow</code> 這個 DAG，點擊最右側的 <strong>Trigger</strong> 按鈕，即可手動觸發該 Python 檔案所定義的任務。</p>
+</li>
+<li><p><strong>啟用排程</strong><br>若要讓 DAG 根據排程自動執行，點擊最左側的 <strong>Toggle</strong> 按鈕打開即可。</p>
+</li>
+</ul>
+<hr>
+<h1 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h1><p>未來可能會嘗試根據現有需求或業務邏輯，將 Airflow 組合成更完整的工作流程，感覺很好玩哈哈</p>
+]]></content>
+      <categories>
+        <category>學習筆記</category>
+      </categories>
+      <tags>
+        <tag>Airflow</tag>
+        <tag>資料工程</tag>
+        <tag>排程管理</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>遠端工作好像沒有我想像中的夢幻耶！？那誒安捏</title>
     <url>/my-blog/2025/04/21/remote-experience/</url>
     <content><![CDATA[<p>我曾經以為，只要可以遠端工作，人生會從黑白變彩色ＸＤ</p>
@@ -20,7 +80,7 @@
 </blockquote>
 <h2 id="🎧-Part-4：不過還是有可圈可點之處"><a href="#🎧-Part-4：不過還是有可圈可點之處" class="headerlink" title="🎧 Part 4：不過還是有可圈可點之處"></a>🎧 Part 4：不過還是有可圈可點之處</h2><p>雖然抱怨很多，但我還是得說，在家裡的話，廁所離你很近XD，吃飽還可以順便刷個牙～</p>
 <p>然後如果去咖啡廳工作的話，氣氛是真的很好（大部分），而且不知為何音樂特別好聽，氣氛真的滿點，整個工作超舒服的，很專注，基本上不會聽到同事講話的打擾聲 顆顆</p>
-<h2 id="✍️-結語｜自由不是不用上班，而是不用內耗"><a href="#✍️-結語｜自由不是不用上班，而是不用內耗" class="headerlink" title="✍️ 結語｜自由不是不用上班，而是不用內耗"></a>✍️ 結語｜自由不是不用上班，而是不用內耗</h2><p>當然啦，如果本身宅屬性很高的話，應該是會非常適合～</p>
+<h2 id="✍️-結語"><a href="#✍️-結語" class="headerlink" title="✍️ 結語"></a>✍️ 結語</h2><p>當然啦，如果本身宅屬性很高的話，應該是會非常適合～</p>
 <p>或是那種可以接歐美外包、年收破百萬的高手，應該不會有像我這種的困擾，畢竟有錢很多事都可以被解決ＸＤ</p>
 <p>面對現實，一起加油吧哈哈～</p>
 ]]></content>

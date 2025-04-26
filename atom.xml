@@ -6,7 +6,7 @@
   <link href="https://teddy13643.github.io/my-blog/atom.xml" rel="self"/>
   
   <link href="https://teddy13643.github.io/my-blog/"/>
-  <updated>2025-04-25T14:55:10.264Z</updated>
+  <updated>2025-04-26T16:18:36.233Z</updated>
   <id>https://teddy13643.github.io/my-blog/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>hello-airflow</title>
+    <link href="https://teddy13643.github.io/my-blog/2025/04/26/hello-airflow/"/>
+    <id>https://teddy13643.github.io/my-blog/2025/04/26/hello-airflow/</id>
+    <published>2025-04-25T16:00:00.000Z</published>
+    <updated>2025-04-26T16:18:36.233Z</updated>
+    
+    
+      
+      
+    <summary type="html"></summary>
+      
+    
+    
+    
+    <category term="學習筆記" scheme="https://teddy13643.github.io/my-blog/categories/%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/"/>
+    
+    
+    <category term="Airflow" scheme="https://teddy13643.github.io/my-blog/tags/Airflow/"/>
+    
+    <category term="資料工程" scheme="https://teddy13643.github.io/my-blog/tags/%E8%B3%87%E6%96%99%E5%B7%A5%E7%A8%8B/"/>
+    
+    <category term="排程管理" scheme="https://teddy13643.github.io/my-blog/tags/%E6%8E%92%E7%A8%8B%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
     <title>遠端工作好像沒有我想像中的夢幻耶！？那誒安捏</title>
     <link href="https://teddy13643.github.io/my-blog/2025/04/21/remote-experience/"/>
     <id>https://teddy13643.github.io/my-blog/2025/04/21/remote-experience/</id>
     <published>2025-04-20T16:00:00.000Z</published>
-    <updated>2025-04-25T14:55:10.264Z</updated>
+    <updated>2025-04-26T14:51:53.769Z</updated>
     
     
       

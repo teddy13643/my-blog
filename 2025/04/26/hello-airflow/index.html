@@ -20,29 +20,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"teddy13643.github.io","root":"/my-blog/","images":"/my-blog/images","scheme":"Muse","darkmode":true,"version":"8.21.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/my-blog/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/my-blog/js/config.js"></script>
 
-    <meta name="description" content="我曾經以為，只要可以遠端工作，人生會從黑白變彩色ＸＤ 可以不用上下班通勤，可以待在家裡，節省超多時間。然後可以自由選擇上班地點，甚至可以邊玩邊工作，超爽～ ☀️ Part 1：現實篇｜醒來就上班，有點激烈每天一起床，就坐到電腦前開工，沒有通勤固然有好處，但也發現中間好像少了一個什麼緩衝區的概念 剛睡醒就一堆工作直接衝你臉上，小小的心靈直接被攻擊，嗚嗚 然後，好不容易結束一天工作，我的天啊天黑了，我">
+    <meta name="description" content="Airflow vs Laravel 排程最近查了一些資料，發現資料工程上常使用 Airflow 來管理排程。之前使用 Laravel 開發時，Laravel 也有 Scheduler 可以管理排程，因此我好奇 Airflow 到底厲害在哪裡。 經過研究後，我整理出以下兩點結論@@：  流程相依性  Airflow 的排程具有相依性，因為他本身就內建有流程相依的語法  Laravel 的排程則比較">
 <meta property="og:type" content="article">
-<meta property="og:title" content="遠端工作好像沒有我想像中的夢幻耶！？那誒安捏">
-<meta property="og:url" content="https://teddy13643.github.io/my-blog/2025/04/21/remote-experience/index.html">
+<meta property="og:title" content="hello-airflow">
+<meta property="og:url" content="https://teddy13643.github.io/my-blog/2025/04/26/hello-airflow/index.html">
 <meta property="og:site_name" content="TeddyInCode">
-<meta property="og:description" content="我曾經以為，只要可以遠端工作，人生會從黑白變彩色ＸＤ 可以不用上下班通勤，可以待在家裡，節省超多時間。然後可以自由選擇上班地點，甚至可以邊玩邊工作，超爽～ ☀️ Part 1：現實篇｜醒來就上班，有點激烈每天一起床，就坐到電腦前開工，沒有通勤固然有好處，但也發現中間好像少了一個什麼緩衝區的概念 剛睡醒就一堆工作直接衝你臉上，小小的心靈直接被攻擊，嗚嗚 然後，好不容易結束一天工作，我的天啊天黑了，我">
+<meta property="og:description" content="Airflow vs Laravel 排程最近查了一些資料，發現資料工程上常使用 Airflow 來管理排程。之前使用 Laravel 開發時，Laravel 也有 Scheduler 可以管理排程，因此我好奇 Airflow 到底厲害在哪裡。 經過研究後，我整理出以下兩點結論@@：  流程相依性  Airflow 的排程具有相依性，因為他本身就內建有流程相依的語法  Laravel 的排程則比較">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-04-20T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-04-26T14:51:53.769Z">
+<meta property="article:published_time" content="2025-04-25T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-04-26T16:18:36.233Z">
 <meta property="article:author" content="Teddy Luo">
-<meta property="article:tag" content="遠端工作">
-<meta property="article:tag" content="自由職場">
-<meta property="article:tag" content="工程師日常">
+<meta property="article:tag" content="Airflow">
+<meta property="article:tag" content="資料工程">
+<meta property="article:tag" content="排程管理">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://teddy13643.github.io/my-blog/2025/04/21/remote-experience/">
+<link rel="canonical" href="https://teddy13643.github.io/my-blog/2025/04/26/hello-airflow/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://teddy13643.github.io/my-blog/2025/04/21/remote-experience/","path":"2025/04/21/remote-experience/","title":"遠端工作好像沒有我想像中的夢幻耶！？那誒安捏"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://teddy13643.github.io/my-blog/2025/04/26/hello-airflow/","path":"2025/04/26/hello-airflow/","title":"hello-airflow"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>遠端工作好像沒有我想像中的夢幻耶！？那誒安捏 | TeddyInCode</title>
+<title>hello-airflow | TeddyInCode</title>
   
 
 
@@ -142,7 +142,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%98%80%EF%B8%8F-Part-1%EF%BC%9A%E7%8F%BE%E5%AF%A6%E7%AF%87%EF%BD%9C%E9%86%92%E4%BE%86%E5%B0%B1%E4%B8%8A%E7%8F%AD%EF%BC%8C%E6%9C%89%E9%BB%9E%E6%BF%80%E7%83%88"><span class="nav-number">1.</span> <span class="nav-text">☀️ Part 1：現實篇｜醒來就上班，有點激烈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%98%95%EF%B8%8F-Part-2%EF%BC%9A%E5%92%96%E5%95%A1%E5%BB%B3%E7%AF%87%EF%BD%9C%E6%AF%8F%E6%9D%AF%E5%92%96%E5%95%A1%E9%83%BD%E6%98%AF%E8%A6%81%E9%8C%A2%E7%9A%84%EF%BD%9E%E5%AD%A9%E5%AD%90"><span class="nav-number">2.</span> <span class="nav-text">☕️ Part 2：咖啡廳篇｜每杯咖啡都是要錢的～孩子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%A7%BE-Part-3%EF%BC%9A%E5%85%B1%E4%BA%AB%E8%BE%A6%E5%85%AC%E5%AE%A4%E7%AF%87%EF%BD%9C%E6%84%9F%E8%A6%BA%E5%BE%88%E5%8E%B2%E5%AE%B3%EF%BC%8C%E4%BD%86%E4%B9%9F%E4%B8%8D%E4%BE%BF%E5%AE%9CXD"><span class="nav-number">3.</span> <span class="nav-text">🧾 Part 3：共享辦公室篇｜感覺很厲害，但也不便宜XD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%8E%A7-Part-4%EF%BC%9A%E4%B8%8D%E9%81%8E%E9%82%84%E6%98%AF%E6%9C%89%E5%8F%AF%E5%9C%88%E5%8F%AF%E9%BB%9E%E4%B9%8B%E8%99%95"><span class="nav-number">4.</span> <span class="nav-text">🎧 Part 4：不過還是有可圈可點之處</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%9C%8D%EF%B8%8F-%E7%B5%90%E8%AA%9E"><span class="nav-number">5.</span> <span class="nav-text">✍️ 結語</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Airflow-vs-Laravel-%E6%8E%92%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">Airflow vs Laravel 排程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E5%95%9F%E5%8B%95%E6%8C%87%E4%BB%A4"><span class="nav-number">2.</span> <span class="nav-text">本地啟動指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DAG-%E5%AF%A6%E4%BD%9C%E7%AF%84%E4%BE%8B"><span class="nav-number">3.</span> <span class="nav-text">DAG 實作範例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8B%E9%9D%A2%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%A9%9F"><span class="nav-number">4.</span> <span class="nav-text">介面操作步驟</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B5%90%E8%AA%9E"><span class="nav-number"></span> <span class="nav-text">結語</span></a></div>
         </div>
         <!--/noindex-->
 
@@ -197,7 +197,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://teddy13643.github.io/my-blog/2025/04/21/remote-experience/">
+    <link itemprop="mainEntityOfPage" href="https://teddy13643.github.io/my-blog/2025/04/26/hello-airflow/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/my-blog/images/avatar.gif">
@@ -210,12 +210,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="遠端工作好像沒有我想像中的夢幻耶！？那誒安捏 | TeddyInCode">
+      <meta itemprop="name" content="hello-airflow | TeddyInCode">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          遠端工作好像沒有我想像中的夢幻耶！？那誒安捏
+          hello-airflow
         </h1>
 
         <div class="post-meta-container">
@@ -226,14 +226,14 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2025-04-21 00:00:00" itemprop="dateCreated datePublished" datetime="2025-04-21T00:00:00+08:00">2025-04-21</time>
+      <time title="Created: 2025-04-26 00:00:00" itemprop="dateCreated datePublished" datetime="2025-04-26T00:00:00+08:00">2025-04-26</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-04-26 22:51:53" itemprop="dateModified" datetime="2025-04-26T22:51:53+08:00">2025-04-26</time>
+      <time title="Modified: 2025-04-27 00:18:36" itemprop="dateModified" datetime="2025-04-27T00:18:36+08:00">2025-04-27</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -241,7 +241,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/my-blog/categories/%E5%B7%A5%E4%BD%9C%E9%AB%94%E6%82%9F/" itemprop="url" rel="index"><span itemprop="name">工作體悟</span></a>
+          <a href="/my-blog/categories/%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">學習筆記</span></a>
         </span>
     </span>
 
@@ -254,26 +254,53 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>我曾經以為，只要可以遠端工作，人生會從黑白變彩色ＸＤ</p>
-<p>可以不用上下班通勤，可以待在家裡，節省超多時間。然後可以自由選擇上班地點，甚至可以邊玩邊工作，超爽～</p>
-<h2 id="☀️-Part-1：現實篇｜醒來就上班，有點激烈"><a href="#☀️-Part-1：現實篇｜醒來就上班，有點激烈" class="headerlink" title="☀️ Part 1：現實篇｜醒來就上班，有點激烈"></a>☀️ Part 1：現實篇｜醒來就上班，有點激烈</h2><p>每天一起床，就坐到電腦前開工，沒有通勤固然有好處，但也發現中間好像少了一個什麼緩衝區的概念</p>
-<p>剛睡醒就一堆工作直接衝你臉上，小小的心靈直接被攻擊，嗚嗚</p>
-<p>然後，好不容易結束一天工作，我的天啊天黑了，我今天一整天都待在家裡沒出門嗎？（這邊確實是有點矛盾ＸＤ），然後就覺得下班了我一定要出門，不然感覺好慘喔ＸＤ</p>
-<h2 id="☕️-Part-2：咖啡廳篇｜每杯咖啡都是要錢的～孩子"><a href="#☕️-Part-2：咖啡廳篇｜每杯咖啡都是要錢的～孩子" class="headerlink" title="☕️ Part 2：咖啡廳篇｜每杯咖啡都是要錢的～孩子"></a>☕️ Part 2：咖啡廳篇｜每杯咖啡都是要錢的～孩子</h2><p>所以我就想說，那就去咖啡廳工作好了，燈光美氣氛佳，工作效率一定ber棒～</p>
-<p>結果發現每天這樣下來，其實你必須要額外支出一筆開銷，而且有時候明明是上班日，咖啡廳依然人不少，而且外面的機車也需要花時間找位置，而且如果筆電電池有耗損的朋友們，也不一定找得到插座喔～</p>
-<p>然後呢，有時候還不能放心把筆電放著離開去上廁所，一顆心就懸在那邊～</p>
-<p>再來，中午肚子餓了，還得離開去找地方吃飯，吃完再找一家新咖啡廳續攤（我不想一直在同一間），一天要切換兩次地點，超尷尬</p>
-<p>最尷尬的是如果有視訊會議…</p>
-<p>你不能講太大聲，怕打擾別人；<br>講太小聲，同事想說你幹嘛那麼小聲，整個很尷尬</p>
-<h2 id="🧾-Part-3：共享辦公室篇｜感覺很厲害，但也不便宜XD"><a href="#🧾-Part-3：共享辦公室篇｜感覺很厲害，但也不便宜XD" class="headerlink" title="🧾 Part 3：共享辦公室篇｜感覺很厲害，但也不便宜XD"></a>🧾 Part 3：共享辦公室篇｜感覺很厲害，但也不便宜XD</h2><p>後來我甚至去問了那種共享辦公室，我已經忘了確切價格，但當時就突然認知到，除非你是需要一個專業空間見客戶，或是你就是那種接歐美案子的遠端高薪高手，不然真的會覺得：</p>
-<blockquote>
-<p>我幹嘛不乾脆去公司爽吹冷氣、狂裝水來喝 XD</p>
-</blockquote>
-<h2 id="🎧-Part-4：不過還是有可圈可點之處"><a href="#🎧-Part-4：不過還是有可圈可點之處" class="headerlink" title="🎧 Part 4：不過還是有可圈可點之處"></a>🎧 Part 4：不過還是有可圈可點之處</h2><p>雖然抱怨很多，但我還是得說，在家裡的話，廁所離你很近XD，吃飽還可以順便刷個牙～</p>
-<p>然後如果去咖啡廳工作的話，氣氛是真的很好（大部分），而且不知為何音樂特別好聽，氣氛真的滿點，整個工作超舒服的，很專注，基本上不會聽到同事講話的打擾聲 顆顆</p>
-<h2 id="✍️-結語"><a href="#✍️-結語" class="headerlink" title="✍️ 結語"></a>✍️ 結語</h2><p>當然啦，如果本身宅屬性很高的話，應該是會非常適合～</p>
-<p>或是那種可以接歐美外包、年收破百萬的高手，應該不會有像我這種的困擾，畢竟有錢很多事都可以被解決ＸＤ</p>
-<p>面對現實，一起加油吧哈哈～</p>
+    <div class="post-body" itemprop="articleBody"><h2 id="Airflow-vs-Laravel-排程"><a href="#Airflow-vs-Laravel-排程" class="headerlink" title="Airflow vs Laravel 排程"></a>Airflow vs Laravel 排程</h2><p>最近查了一些資料，發現資料工程上常使用 Airflow 來管理排程。之前使用 Laravel 開發時，Laravel 也有 Scheduler 可以管理排程，因此我好奇 Airflow 到底厲害在哪裡。</p>
+<p>經過研究後，我整理出以下兩點結論@@：</p>
+<ol>
+<li><p><strong>流程相依性</strong></p>
+<ul>
+<li><p>Airflow 的排程具有相依性，因為他本身就內建有流程相依的語法</p>
+</li>
+<li><p>Laravel 的排程則比較獨立，若要實現相依性需要額外撰寫大量程式碼，且會增加彼此間的耦合度，進而提高測試與維護難度。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>排程管理與維護</strong></p>
+<ul>
+<li><p>當排程數量眾多時，Laravel 由於缺乏階層與流程結構，除非所有排程都是由同一人開發，否則接手者需要透過觸發週期或時間點推敲整體資料流程與業務流程。</p>
+</li>
+<li><p>而且還會需要依賴外部文件來對照理解，增加維護的複雜度。</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>感覺起來airflow很厲害哈哈，因為之前在公司畫流程圖時候，也覺得滿好玩的，那既然Airflow主打一個流程很強的優點，所以我想說來架看看好了＠＠</p>
+<h2 id="本地啟動指令"><a href="#本地啟動指令" class="headerlink" title="本地啟動指令"></a>本地啟動指令</h2><p>使用 Docker Compose 最快，指令＋說明如下：</p>
+<ul>
+<li><p><code>curl -LfO &#39;https://airflow.apache.org/docs/apache-airflow/2.8.1/docker-compose.yaml&#39;</code><br>下載官方範例的 <code>docker-compose.yaml</code> 檔案。</p>
+</li>
+<li><p><code>docker-compose up airflow-init</code><br>初始化資料庫及相關設定。</p>
+</li>
+<li><p><code>docker-compose up</code><br>啟動整個 Airflow 系統，包括 Web UI、Scheduler 等服務。</p>
+</li>
+</ul>
+<p>啟動完成後，打開瀏覽器並訪問 <a target="_blank" rel="noopener" href="http://localhost:8080/">http://localhost:8080</a> 即可看到 Airflow 的介面，功能豐富且專業。</p>
+<p>預設帳號密碼皆為 <code>airflow</code>。</p>
+<h2 id="DAG-實作範例"><a href="#DAG-實作範例" class="headerlink" title="DAG 實作範例"></a>DAG 實作範例</h2><p>接著準備一個簡單的 Python 檔案（Airflow 專有名詞稱為 DAG），命名為 <code>hello_airflow.py</code>，並放置在 <code>dags</code> 資料夾中：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> airflow <span class="keyword">import</span> DAG</span><br><span class="line"><span class="keyword">from</span> airflow.operators.python <span class="keyword">import</span> PythonOperator</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">say_hello</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Hello, Airflow!&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> DAG(</span><br><span class="line">    dag_id=<span class="string">&quot;hello_airflow&quot;</span>,</span><br><span class="line">    start_date=datetime(<span class="number">2025</span>, <span class="number">4</span>, <span class="number">25</span>),</span><br><span class="line">    schedule_interval=<span class="literal">None</span>,  <span class="comment"># 手動觸發</span></span><br><span class="line">    catchup=<span class="literal">False</span>,</span><br><span class="line">) <span class="keyword">as</span> dag:</span><br><span class="line">    hello_task = PythonOperator(</span><br><span class="line">        task_id=<span class="string">&quot;say_hello_task&quot;</span>,</span><br><span class="line">        python_callable=say_hello,</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
+
+<p>這個 DAG 非常簡單，執行時會在 log 中印出一行 “Hello, Airflow!”。</p>
+<h2 id="介面操作步驟"><a href="#介面操作步驟" class="headerlink" title="介面操作步驟"></a>介面操作步驟</h2><p>打開 Airflow Web UI（預設為 8080 端口）後，可以依照以下步驟操作：</p>
+<ul>
+<li><p><strong>查看 DAG 清單</strong><br>頁面會顯示多個範例 DAG，我計畫之後修改 <code>docker-compose.yaml</code> 設定，移除這些範例，因為現今 AI 工具相當方便，直接查詢即可，不太需要大量範例。</p>
+</li>
+<li><p><strong>觸發 DAG</strong><br>找到 <code>hello_airflow</code> 這個 DAG，點擊最右側的 <strong>Trigger</strong> 按鈕，即可手動觸發該 Python 檔案所定義的任務。</p>
+</li>
+<li><p><strong>啟用排程</strong><br>若要讓 DAG 根據排程自動執行，點擊最左側的 <strong>Toggle</strong> 按鈕打開即可。</p>
+</li>
+</ul>
+<hr>
+<h1 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h1><p>未來可能會嘗試根據現有需求或業務邏輯，將 Airflow 組合成更完整的工作流程，感覺很好玩哈哈</p>
 
     </div>
 
@@ -283,20 +310,20 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/my-blog/tags/%E9%81%A0%E7%AB%AF%E5%B7%A5%E4%BD%9C/" rel="tag"># 遠端工作</a>
-              <a href="/my-blog/tags/%E8%87%AA%E7%94%B1%E8%81%B7%E5%A0%B4/" rel="tag"># 自由職場</a>
-              <a href="/my-blog/tags/%E5%B7%A5%E7%A8%8B%E5%B8%AB%E6%97%A5%E5%B8%B8/" rel="tag"># 工程師日常</a>
+              <a href="/my-blog/tags/Airflow/" rel="tag"># Airflow</a>
+              <a href="/my-blog/tags/%E8%B3%87%E6%96%99%E5%B7%A5%E7%A8%8B/" rel="tag"># 資料工程</a>
+              <a href="/my-blog/tags/%E6%8E%92%E7%A8%8B%E7%AE%A1%E7%90%86/" rel="tag"># 排程管理</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/my-blog/2025/04/21/remote-experience/" rel="prev" title="遠端工作好像沒有我想像中的夢幻耶！？那誒安捏">
+                  <i class="fa fa-angle-left"></i> 遠端工作好像沒有我想像中的夢幻耶！？那誒安捏
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/my-blog/2025/04/26/hello-airflow/" rel="next" title="hello-airflow">
-                  hello-airflow <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -372,7 +399,7 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"teddy13643","repo":"my-blog","client_id":"Ov23liQ9m79EQOvtSb1o","client_secret":"6f109198df6b8429b0240d897975d854d2b833bd","admin_user":"teddy13643","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"1f99d4372cb9cd39671ef989ea7b06a0"}</script>
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"teddy13643","repo":"my-blog","client_id":"Ov23liQ9m79EQOvtSb1o","client_secret":"6f109198df6b8429b0240d897975d854d2b833bd","admin_user":"teddy13643","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"a784b80b615ad52595af8bd6a330572c"}</script>
 <script src="/my-blog/js/third-party/comments/gitalk.js"></script>
 
 </body>
