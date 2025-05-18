@@ -1,6 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>first-langchain</title>
+    <url>/my-blog/2025/05/18/first-langchain/</url>
+    <content><![CDATA[<p>現在超多人都在用AI工作了，隨著語言模型越來越強大，想說試著來和模型進行串接看看，<br>然後查到<a href="https://www.langchain.com/">LangChain</a>這個開發框架，可以根據LLM來打造一個完整的應用。</p>
+<p>所以今天就用docker-compose來開發看看吧～</p>
+<hr>
+<h2 id="🧱-專案結構"><a href="#🧱-專案結構" class="headerlink" title="🧱 專案結構"></a>🧱 專案結構</h2><p>先建立一個專案（<code>langchain-app/</code>），然後新增相關檔案：</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">langchain-app/</span><br><span class="line">├── <span class="selector-class">.env</span></span><br><span class="line">├── app<span class="selector-class">.py</span></span><br><span class="line">├── docker-compose<span class="selector-class">.yml</span></span><br><span class="line">├── Dockerfile</span><br><span class="line">├── requirements.txt</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="📦-requirements-txt"><a href="#📦-requirements-txt" class="headerlink" title="📦 requirements.txt"></a>📦 requirements.txt</h3><figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">langchain</span><br><span class="line">langchain-community</span><br><span class="line">langchain-openai</span><br><span class="line">python-dotenv</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="🐳-Dockerfile"><a href="#🐳-Dockerfile" class="headerlink" title="🐳 Dockerfile"></a>🐳 Dockerfile</h3><figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> python:<span class="number">3.11</span>-slim</span><br><span class="line"></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /app</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> requirements.txt .</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> pip install --no-cache-dir -r requirements.txt</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> . .</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [<span class="string">&quot;python&quot;</span>, <span class="string">&quot;app.py&quot;</span>] </span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="🐳-docker-compose-yml"><a href="#🐳-docker-compose-yml" class="headerlink" title="🐳 docker-compose.yml"></a>🐳 docker-compose.yml</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">langchain:</span></span><br><span class="line">    <span class="attr">build:</span> <span class="string">.</span></span><br><span class="line">    <span class="attr">env_file:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">.env</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">.:/app</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="🔑-env"><a href="#🔑-env" class="headerlink" title="🔑 .env"></a>🔑 .env</h3><p>需前往 <a href="https://platform.openai.com/settings/organization/api-keys">https://platform.openai.com/settings/organization/api-keys</a> 申請</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">OPENAI_API_KEY=&#123;你的API KEY&#125;</span><br><span class="line">MAX_TOKENS=18</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="🐍-app-py"><a href="#🐍-app-py" class="headerlink" title="🐍 app.py"></a>🐍 app.py</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> langchain_openai <span class="keyword">import</span> ChatOpenAI</span><br><span class="line"><span class="keyword">from</span> langchain.schema <span class="keyword">import</span> HumanMessage</span><br><span class="line"><span class="keyword">from</span> dotenv <span class="keyword">import</span> load_dotenv</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="comment"># 載入 .env 中的環境變數</span></span><br><span class="line">load_dotenv()</span><br><span class="line">api_key = os.getenv(<span class="string">&quot;OPENAI_API_KEY&quot;</span>)</span><br><span class="line">max_tokens = <span class="built_in">int</span>(os.getenv(<span class="string">&quot;MAX_TOKENS&quot;</span>, <span class="string">&quot;18&quot;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化模型</span></span><br><span class="line">llm = ChatOpenAI(</span><br><span class="line">    model=<span class="string">&quot;gpt-3.5-turbo-0125&quot;</span>, <span class="comment"># 這模型目前比較省錢</span></span><br><span class="line">    temperature=<span class="number">0.7</span>, <span class="comment"># </span></span><br><span class="line">    max_tokens=max_tokens <span class="comment"># 限制他的回傳，免得他回話太多 這樣比較省錢ＸＤ</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 發送訊息</span></span><br><span class="line">response = llm.invoke([</span><br><span class="line">    HumanMessage(content=<span class="string">&quot;稱讚我&quot;</span>)</span><br><span class="line">])</span><br><span class="line"><span class="built_in">print</span>(response.content)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="🚀-執行步驟"><a href="#🚀-執行步驟" class="headerlink" title="🚀 執行步驟"></a>🚀 執行步驟</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker compose run --<span class="built_in">rm</span> langchain</span><br></pre></td></tr></table></figure>
+
+<p>執行後，會看到 GPT 模型的回應，例如：</p>
+<figure class="highlight 1c"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;你真的太棒了！&quot;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="📝-後記心得"><a href="#📝-後記心得" class="headerlink" title="📝 後記心得"></a>📝 後記心得</h2><p>這次主要花時間在語法調整，因為 LangChain 有更新，很多教學是用舊的語法，需要花時間改成新的。</p>
+<p>另外申請 OpenAI API Key 時，建議只開必要權限，避免不小心誤打太多付費功能。也不要啟用自動儲值，避免OpenAI狂吸你的錢XD<br>Token限制就更不用說了@@</p>
+<p>感覺成本控制也是一門學問～</p>
+]]></content>
+      <tags>
+        <tag>langchain</tag>
+        <tag>llm</tag>
+        <tag>openapi</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hello-airflow</title>
     <url>/my-blog/2025/04/26/hello-airflow/</url>
     <content><![CDATA[<h2 id="Airflow-vs-Laravel-排程"><a href="#Airflow-vs-Laravel-排程" class="headerlink" title="Airflow vs Laravel 排程"></a>Airflow vs Laravel 排程</h2><p>最近查了一些資料，發現資料工程上常使用 Airflow 來管理排程。之前使用 Laravel 開發時，Laravel 也有 Scheduler 可以管理排程，因此我好奇 Airflow 到底厲害在哪裡。</p>
